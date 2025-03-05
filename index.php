@@ -8,19 +8,24 @@
     <title>Mégatel</title>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let title = document.getElementById("title");
-            let text = "MEGATEL";
-            let index = 0;
-            function typeWriter() {
-                if (index < text.length) {
-                    title.innerHTML += text.charAt(index);
-                    index++;
-                    setTimeout(typeWriter, 300);
-                }
+    let title = document.getElementById("title");
+    let text = "MEGATEL";
+    let index = 0;
+
+    if (!title.dataset.animated) { 
+        function typeWriter() {
+            if (index < text.length) {
+                title.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 300);
             }
-            title.innerHTML = "";
-            typeWriter();
-        });
+        }
+        title.innerHTML = "";
+        title.dataset.animated = "true"; 
+        typeWriter();
+    }
+});
+
 
         window.addEventListener('scroll', function() {
             let produit = document.querySelector('#produit1 img');
