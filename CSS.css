@@ -112,6 +112,7 @@ h2 {
     box-shadow: 0 0 10px #ff00ff;
     position: relative;
     overflow: hidden;
+    height: 60vh;
 }
 
 #produit1 img {

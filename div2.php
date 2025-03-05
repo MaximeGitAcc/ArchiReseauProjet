@@ -3,7 +3,7 @@
             <section id="produit1">
                 <img src="IA2.png" alt="Produit 1">
                 <div class="description_produit">
-                    <p>Lorem ipsum dolor sit amet consectetur...</p>
+                    <p>Un produit alliant fiabilité et élégance, un outil design. C'est le MINIGARS </p>
                     <button class="btn-hover">En savoir plus</button>
                 </div>
             </section>
