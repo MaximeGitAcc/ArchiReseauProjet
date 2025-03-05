@@ -44,14 +44,17 @@ body {
 header {
     text-align: center;
     padding: 20px;
+    height: 100vh;
 }
 
 h1 {
     font-family: 'mortal_waveregular';
-    font-size: 100px;
+    margin-top: 15%;
+    font-size: 200px;
     color: #ff00ff;  /* Garder la couleur rose pour le texte */
     text-shadow: 0 0 10px #de13db, 0 0 20px #fc02ef; /* Effet néon en #0f3460 */
 }
+
 
 /* Menu de navigation */
 nav {
@@ -88,11 +91,15 @@ main div {
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 50px;
     text-transform: uppercase;
     color: #ff00ff;
     text-shadow: 0 0 5px #ff00ff;
+    font-family: 'mortal_waveregular';
 }
+#div1, #div2,#div3{
+    height: 100vh;
+} 
 
 /* Produits */
 #produit1, #produit2 {
