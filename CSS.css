@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'mortal_waveregular';
+    src: url('Font/1/mortal_wave-webfont.woff2') format('woff2'),
+         url('Font/1/mortal_wave-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'betmoregular';
+    src: url('Font/2/otf-webfont.woff2') format('woff2'),
+         url('Font/2/otf-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'cervanttisregular';
+    src: url('Font/3/cervanttis-webfont.woff2') format('woff2'),
+         url('Font/3/cervanttis-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'quickregular';
+    src: url('Font/5/quick-webfont.woff2') format('woff2'),
+         url('Font/5/quick-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+html{
+    height: 100%;
+    top: 0;
+}
+body{
+    margin: 0;
+}
+#background-video {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;  
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 85%;
+    }
+header{
+    display: flex;
+    flex-direction: column;
+    height: 50vw;
+}
+a{
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+}
+h1{
+    display: flex;
+    align-self: center;
+    font-family: 'mortal_waveregular';
+    font-size: 100px;
+    margin-top: -30%;
+}
+nav{
+    margin-top: 10px;
+    align-self: center;
+    display: flex;
+    width: 70%;
+    position: fixed;
+    font-family: 'quickregular';
+    font-weight: bold;
+}
+span{
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+#div1{
+    height: 50vw;
+}
+
+
+#produit1{
+    height: 50vw;
+    width: 100%;
+    border-style: solid;
+    border-color: black;
+}
+#div2{
+    display: flex;
+    flex-direction: column;
+}
+img{
+    width : 20vw;
+    height : 40vh;
+    animation-duration: 20s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    overflow: hidden;
+}
+.desciption_produit{
+    border-color: blue;
+    border-style: solid;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+
+  
+@keyframes slidein {
+    from {
+      margin-left: 0%;
+      overflow: hidden;
+    }
+    35% {
+        margin-left: 75%;
+        margin-top: 0%;
+      }
+    50% {
+        margin-left: 75%;
+        margin-top: 10%;
+    }
+    85% {
+        margin-left: 0%;
+        margin-top: 10%;
+    }
+    to {
+      margin-left: 0%;
+      margin-top: 0%;
+      overflow: hidden;
+    }
+  }
