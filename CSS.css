@@ -186,9 +186,12 @@ h2 {
     text-shadow: 0 0 5px #ff00ff;
     font-family: 'mortal_waveregular';
 }
-#div1, #div2,#div3{
+#div1,#div3{
     height: 100vh;
 } 
+#div2{
+    height: 150vh;
+}
 
 /* Produits */
 #produit1, #produit2 {
