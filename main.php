@@ -1,55 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta name="author" content="ALBOUY Maxime ; PORÉE Gaël">
-    <link rel="icon" href="20211021_151048.jpg">
-    <link rel="stylesheet" href="CSS.css">
-    <title>Mégatel</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let title = document.getElementById("title");
-            let text = "MEGATEL";
-            let index = 0;
-            function typeWriter() {
-                if (index < text.length) {
-                    title.innerHTML += text.charAt(index);
-                    index++;
-                    setTimeout(typeWriter, 300);
-                }
-            }
-            title.innerHTML = "";
-            typeWriter();
-        });
-
-        window.addEventListener('scroll', function() {
-            let produit = document.querySelector('#produit1 img');
-            let description = document.querySelector('#produit1 .description_produit');
-            let produitBox = document.querySelector('#produit1').getBoundingClientRect();
-            let windowHeight = window.innerHeight;
-            let scrollAmount = (windowHeight - produitBox.top) / windowHeight;
-            if (scrollAmount >= 0 && scrollAmount <= 1) {
-                let translateValue = scrollAmount * 100;
-                produit.style.transform = `translateX(${translateValue}px)`;
-                description.style.transform = `translateX(${translateValue}px)`;
-            }
-        });
-    </script>
-</head>
-<body>
-    <header>
-        <video id="background-video" autoplay loop muted>
-            <source src="Film de pub Minitel.mp4" type="video/mp4">
-        </video>
-        <nav>
-            <span><a href="#div1">A PROPOS</a></span>
-            <span><a href="#div2">PRODUITS</a></span>
-            <span><a href="#div3">NOUS</a></span>
-            <span><a href="#contact">CONTACT</a></span>
-        </nav>
-        <h1 id="title"></h1>
-    </header>
-    <main>
+<main>
         <div id="div1">
             <h2>A PROPOS</h2>
             <p>Chaque jour qui passe, une page se tourne. Mais le livre, lui, ne disparaît pas. Il se saisi chaque jour de nouvelles aventures, de nouveaux paradoxes, de nouvelles technologies ... 
@@ -94,8 +43,3 @@
             </form>
         </div>
     </main>
-    <footer>
-        <p>© 2025 Mégatel. Tous droits réservés.</p>
-    </footer>
-</body>
-</html>
