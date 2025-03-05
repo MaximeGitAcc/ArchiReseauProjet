@@ -1,141 +1,166 @@
+/* Importation des polices */
 @font-face {
     font-family: 'mortal_waveregular';
-    src: url('Font/1/mortal_wave-webfont.woff2') format('woff2'),
-         url('Font/1/mortal_wave-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'betmoregular';
-    src: url('Font/2/otf-webfont.woff2') format('woff2'),
-         url('Font/2/otf-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'cervanttisregular';
-    src: url('Font/3/cervanttis-webfont.woff2') format('woff2'),
-         url('Font/3/cervanttis-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+    src: url('Font/1/mortal_wave-webfont.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'quickregular';
-    src: url('Font/5/quick-webfont.woff2') format('woff2'),
-         url('Font/5/quick-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+    src: url('Font/5/quick-webfont.woff2') format('woff2');
 }
 
-
-html{
-    height: 100%;
-    top: 0;
-}
-body{
+/* Style général */
+body {
     margin: 0;
+    font-family: 'quickregular', sans-serif;
+    color: white;
+    background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+    background-size: 400% 400%;
+    animation: neonBackground 10s infinite alternate ease-in-out;
 }
-#background-video {
-    height: 100vh;
-    width: 100vw;
-    object-fit: cover;  
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    opacity: 85%;
+
+@keyframes neonBackground {
+    0% {
+        background-position: 0% 0%;
     }
-header{
-    display: flex;
-    flex-direction: column;
-    height: 50vw;
+    100% {
+        background-position: 100% 100%;
+    }
 }
-a{
-    display: flex;
-    text-decoration: none;
-    justify-content: center;
+
+/* Fond vidéo */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    filter: blur(5px) brightness(50%);
 }
-h1{
-    display: flex;
-    align-self: center;
+
+/* En-tête */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
     font-family: 'mortal_waveregular';
     font-size: 100px;
-    margin-top: -30%;
+    color: #ff00ff;  /* Garder la couleur rose pour le texte */
+    text-shadow: 0 0 10px #de13db, 0 0 20px #fc02ef; /* Effet néon en #0f3460 */
 }
-nav{
-    margin-top: 10px;
-    align-self: center;
+
+/* Menu de navigation */
+nav {
     display: flex;
-    width: 70%;
+    justify-content: center;
+    gap: 15px;
     position: fixed;
-    font-family: 'quickregular';
-    font-weight: bold;
-}
-span{
-    flex-direction: column;
-    flex: 1 1 auto;
-}
-
-#div1{
-    height: 50vw;
-}
-
-
-#produit1{
-    height: 50vw;
     width: 100%;
-    border-style: solid;
-    border-color: black;
+    top: 10px;
+    z-index: 1000;
+    margin-top: 20px; /* Ajout de la marge */
 }
-#div2{
+
+nav a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    padding: 12px 20px;
+    border: 2px solid #ff00ff;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px transparent;
+}
+nav a:hover {
+    color: #ffffff;
+    box-shadow: 0 0 10px #1a1f5f, 0 0 10px #4f06c5;;
+}
+
+/* Sections */
+main div {
+    padding: 50px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+/* Produits */
+#produit1, #produit2 {
     display: flex;
-    flex-direction: column;
-}
-img{
-    width : 20vw;
-    height : 40vh;
-    animation-duration: 20s;
-    animation-name: slidein;
-    animation-iteration-count: infinite;
+    align-items: center;
+    border: 2px solid #ff00ff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff00ff;
+    position: relative;
     overflow: hidden;
 }
-.desciption_produit{
-    border-color: blue;
-    border-style: solid;
-    margin-left: 30%;
-    margin-right: 30%;
+
+#produit1 img {
+    width: 150px;
+    height: auto;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
 }
 
+.description_produit {
+    width: 60%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    transition: transform 0.5s ease-in-out;
+}
 
-  
-@keyframes slidein {
-    from {
-      margin-left: 0%;
-      overflow: hidden;
-    }
-    35% {
-        margin-left: 75%;
-        margin-top: 0%;
-      }
-    50% {
-        margin-left: 75%;
-        margin-top: 10%;
-    }
-    85% {
-        margin-left: 0%;
-        margin-top: 10%;
-    }
-    to {
-      margin-left: 0%;
-      margin-top: 0%;
-      overflow: hidden;
-    }
-  }
+/* Boutons interactifs */
+.btn-hover {
+    background: none;
+    border: 2px solid #ff00ff;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+    box-shadow: 0 0 5px transparent;
+}
+.btn-hover:hover {
+    background: #ff00ff;
+    color: black;
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+}
+
+/* Section Contact */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+input, textarea {
+    width: 60%;
+    padding: 10px;
+    border: 2px solid #ff00ff;
+    background: black;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.8);
+}
