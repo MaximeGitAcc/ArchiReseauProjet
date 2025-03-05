@@ -202,13 +202,14 @@ h2 {
     position: relative;
     overflow: hidden;
     height: 60vh;
+    justify-content: center;
 }
 
 #produit1 img {
-    width: 150px;
+    width: 300px;
     height: auto;
-    position: relative;
-    transition: transform 0.5s ease-in-out;
+    position: absolute;
+    animation: rotation 5s linear infinite;
 }
 
 .description_produit {
@@ -216,8 +217,16 @@ h2 {
     background: rgba(0, 0, 0, 0.7);
     padding: 15px;
     border-radius: 10px;
-    text-align: left;
-    transition: transform 0.5s ease-in-out;
+    text-align: center;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg) translateX(150px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(150px) rotate(-360deg);
+    }
 }
 
 /* Boutons interactifs */
