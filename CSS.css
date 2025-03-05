@@ -100,7 +100,7 @@ nav {
     position: absolute;
     top: 17px;
     right: 100px; /* Position où il apparaîtra */
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0);
     padding: 5px 10px;
     height: 40px; /* Hauteur du menu burger */
     border-radius: 10px;
