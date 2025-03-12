@@ -59,6 +59,66 @@ h1 {
     text-shadow: 0 0 10px #de13db, 0 0 20px #fc02ef; /* Effet néon en #0f3460 */
 }
 
+/* Style du bouton Connexion */
+#login-btn {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background: none;
+    border: 2px solid #ff00ff;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+#login-btn:hover {
+    background: #ff00ff;
+    color: black;
+}
+
+/* Pop-up de connexion */
+.popup {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+/* Contenu du pop-up */
+.popup-content {
+    position: relative;
+}
+
+/* Bouton de fermeture */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Champs du formulaire */
+.popup input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ff00ff;
+    background: black;
+    color: white;
+    border-radius: 5px;
+}
+
 
 /* Menu de navigation */
 
