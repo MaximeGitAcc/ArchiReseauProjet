@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 12 mars 2025 à 14:45
+-- Généré le :  mer. 12 mars 2025 à 15:38
 -- Version du serveur :  5.7.17
 -- Version de PHP :  5.6.30
 
@@ -25,22 +25,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `orders`
+--
+
+CREATE TABLE `orders` (
+  `ID` int(10) NOT NULL,
+  `Date` date NOT NULL,
+  `Payment_method` varchar(255) NOT NULL,
+  `Delivery_address` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `products`
 --
 
 CREATE TABLE `products` (
   `ID` int(3) NOT NULL,
   `Name` varchar(30) NOT NULL,
-  `Price` int(4) NOT NULL
+  `Price` int(4) NOT NULL,
+  `Quantity` int(3) NOT NULL,
+  `Description` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `products`
 --
 
-INSERT INTO `products` (`ID`, `Name`, `Price`) VALUES
-(1, 'Minigars', 450),
-(2, 'Mininiak', 350);
+INSERT INTO `products` (`ID`, `Name`, `Price`, `Quantity`, `Description`) VALUES
+(1, 'Minigars', 450, 0, ''),
+(2, 'Mininiak', 350, 0, '');
 
 -- --------------------------------------------------------
 
@@ -69,6 +84,12 @@ INSERT INTO `users` (`ID`, `Login`, `Password`, `Email`) VALUES
 --
 
 --
+-- Index pour la table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Index pour la table `products`
 --
 ALTER TABLE `products`
@@ -86,6 +107,11 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
+--
+-- AUTO_INCREMENT pour la table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `products`
 --
