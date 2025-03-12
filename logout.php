@@ -1,8 +1,6 @@
 <?php
-session_start();
-session_destroy();
-setcookie("username", "", time() - 3600, "/"); // Supprimer le cookie
-
-header("Location: index.php");
+// Supprimer le cookie de connexion
+setcookie("username", "", time() - 3600, "/"); // Expire immédiatement
+header("Location: index.php"); // Rediriger vers la page d'accueil
 exit();
 ?>

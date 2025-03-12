@@ -1,20 +1,11 @@
-<?php
-session_start();
-
-// Vérifier si l'utilisateur est connecté via session ou cookie
-if (!isset($_SESSION['username']) && isset($_COOKIE['username'])) {
-    $_SESSION['username'] = $_COOKIE['username'];
-}
-?>
-
 <header>
     <video id="background-video" autoplay loop muted>
         <source src="Film de pub Minitel.mp4" type="video/mp4">
     </video>
 
     <div class="login-container">
-        <?php if (isset($_SESSION['username'])): ?>
-            <p>👤 <?= htmlspecialchars($_SESSION['username']); ?> | <a href="logout.php" class="btn-hover">Déconnexion</a></p>
+        <?php if (isset($_COOKIE['username'])): ?>
+            <p>👤 <?= htmlspecialchars($_COOKIE['username']); ?> | <a href="logout.php" class="btn-hover">Déconnexion</a></p>
         <?php else: ?>
             <button id="login-btn" class="btn-hover">Connexion</button>
         <?php endif; ?>

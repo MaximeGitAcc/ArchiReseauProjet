@@ -60,6 +60,23 @@ h1 {
     text-shadow: 0 0 10px #de13db, 0 0 20px #fc02ef; /* Effet néon en #0f3460 */
 }
     
+.login-container {
+    height: fit-content;
+}
+
+/* Le bouton de connexion */
+.login-button {
+    margin-left: 20px; /* Espace entre le menu burger et le bouton de connexion */
+    display: flex; /* Assure qu'il est visible */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 40px;
+    z-index: 20; /* Toujours au-dessus */
+}
+
 /* Menu de navigation */
 
 /* Style de base pour la navigation */
@@ -73,15 +90,6 @@ nav {
     left: 0; /* Reste à gauche */
     right: 0; /* Reste à droite */
     z-index: 100; /* S'assure que c'est au-dessus de tout le contenu */
-}
-
-/* Le bouton de connexion */
-.login-button {
-    margin-left: 20px; /* Espace entre le menu burger et le bouton de connexion */
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
 }
 
 /* Menu burger */
