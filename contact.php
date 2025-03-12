@@ -7,4 +7,14 @@
                 <textarea id="message" name="message" required></textarea>
                 <button type="submit" class="btn-hover">Envoyer</button>
             </form>
+            <?php
+            
+                $nom_cookie = "email";
+                $valeur_cookie = $_POST["email"];
+                $duree_cookie = time()+ 6000;
+
+                setcookie($nom_cookie,$valeur_cookie,$duree_cookie,"/");
+                //echo "Votre email est ".$_COOKIE["email"];
+            ?>
+
         </div>

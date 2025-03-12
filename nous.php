@@ -1,4 +1,4 @@
-<div id="div3">
+<div id="nous">
             <h2>NOUS</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
             <div class="team">

@@ -1,4 +1,4 @@
-<div id="div2">
+<div id="produits">
             <h2>PRODUITS</h2>
             <section id="produit1">
                 <img src="IA2.png" alt="Produit 1">

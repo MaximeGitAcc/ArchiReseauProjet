@@ -1,14 +1,14 @@
 <main>
 <?php
-    include("div1.php")
+    include("a_propos.php")
 ?>
 
 <?php
-    include("div2.php")
+    include("produits.php")
 ?>
 
 <?php
-    include("div3.php")
+    include("nous.php")
 ?>
 
 <?php
