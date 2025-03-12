@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: index.php"); 
         exit();
     } else {
-        echo "Nom d'utilisateur ou mot de passe incorrect.";&
+        echo "Nom d'utilisateur ou mot de passe incorrect.";
     }
 }
 ?>
