@@ -42,7 +42,7 @@ if (!isset($_SESSION['username']) && isset($_COOKIE['username'])) {
     <!-- Pop-up de connexion -->
     <div id="login-popup" class="popup">
         <div class="popup-content">
-            <span class="close-btn">&times;</span>
+            <button class="close-btn">&times;</button>
             <h2>Connexion</h2>
             <form action="login.php" method="post">
                 <label for="username">Nom d'utilisateur :</label>
