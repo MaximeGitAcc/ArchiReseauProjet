@@ -42,15 +42,19 @@ if (!isset($_SESSION['username']) && isset($_COOKIE['username'])) {
     <!-- Pop-up de connexion -->
     <div id="login-popup" class="popup">
         <div class="popup-content">
-            <button class="close-btn">&times;</button>
+            <button id="btn-close-popup" class="btn-hover">&times;</button>
             <h2>Connexion</h2>
             <form action="login.php" method="post">
                 <label for="username">Nom d'utilisateur :</label>
                 <input type="text" id="username" name="username" required>
-                
+                <br>
+                <br>
                 <label for="password">Mot de passe :</label>
+                <br>
                 <input type="password" id="password" name="password" required>
-                
+                <br>
+                <br>
+                <br>
                 <button type="submit" class="btn-hover">Se connecter</button>
             </form>
         </div>
@@ -67,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Gestion de la pop-up de connexion
     const loginBtn = document.getElementById("login-btn");
     const loginPopup = document.getElementById("login-popup");
-    const closeBtn = document.querySelector(".close-btn");
+    const closeBtn = document.getElementById("btn-close-popup");
 
     if (loginBtn) {
         loginBtn.addEventListener("click", function () {
