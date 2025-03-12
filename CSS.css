@@ -28,6 +28,10 @@ body {
     }
 }
 
+body::-webkit-scrollbar {
+    display: none; /* Pour Chrome, Safari et Edge */
+}
+
 /* Fond vidéo */
 #background-video {
     position: fixed;
