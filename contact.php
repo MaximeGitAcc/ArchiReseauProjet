@@ -1,6 +1,6 @@
 <div id="contact">
             <h2>Contact</h2>
-            <form>
+            <form method = "post">
                 <label for="email">Email :</label>
                 <input type="email" id="email" name="email" required>
                 <label for="message">Message :</label>
