@@ -13,6 +13,7 @@ try {
     // Récupérer les données
     while ($names = $myresult->fetch(PDO::FETCH_ASSOC)) {
         echo $names['Name'] . '<br>'; // On accède à la colonne "Name"
+        $NOM = $names['Name'];
     }
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
@@ -22,7 +23,8 @@ try {
             <section id="produit1">
                 <img src="IA2.png" alt="Produit 1">
                 <div class="description_produit">
-                    <p>Un produit alliant fiabilité et élégance, un outil design. C'est le . htmlspecialchars($name['Name']) . </p>
+                    <p>Un produit alliant fiabilité et élégance, un outil design. C'est le  . </p>
+                    <?php echo $NOM; ?>  <!-- faut que tu le place bien mais voilà -->
                 </div>
             </section>
             <section id="produit2">
