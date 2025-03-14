@@ -5,7 +5,7 @@
 
     <div class="login-container">
         <?php if (isset($_COOKIE['username'])): ?>
-            <p>👤 <?= htmlspecialchars($_COOKIE['username']); ?> | <form action="logout.php" method="post"><button type="submit" class="btn-hover">Déconnexion</button></form></p>
+            <p>👤 <?= htmlspecialchars($_COOKIE['username']); ?><form action="logout.php" method="post"><button type="submit" class="btn-hover">Déconnexion</button></form></p>
         <?php else: ?>
             <button id="login-btn" class="btn-hover">Connexion</button>
         <?php endif; ?>
@@ -21,9 +21,9 @@
 
         <!-- Menu de navigation -->
         <div id="nav-links" class="nav-links">
-            <span><a href="#div1">A PROPOS</a></span>
-            <span><a href="#div2">PRODUITS</a></span>
-            <span><a href="#div3">NOUS</a></span>
+            <span><a href="#a_propos">A PROPOS</a></span>
+            <span><a href="#produits">PRODUITS</a></span>
+            <span><a href="#nous">NOUS</a></span>
             <span><a href="#contact">CONTACT</a></span>
         </div>
     </nav>

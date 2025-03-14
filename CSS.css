@@ -46,7 +46,7 @@ body::-webkit-scrollbar {
 
 /* En-tête */
 header {
-    display: flex;
+    display: absolute;
     text-align: center;
     padding: 20px;
     height: 100vh;
@@ -64,21 +64,11 @@ h1 {
     height: fit-content;
 }
 
-/* Le bouton de connexion */
-.login-button {
-    margin-left: 20px; /* Espace entre le menu burger et le bouton de connexion */
-    display: flex; /* Assure qu'il est visible */
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 10px;
-    position: absolute;
-    top: 40px;
-    z-index: 20; /* Toujours au-dessus */
+button#login-btn {
+    float: left;
 }
 
 /* Menu de navigation */
-
 /* Style de base pour la navigation */
 nav {
     display: flex;
