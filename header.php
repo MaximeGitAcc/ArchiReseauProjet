@@ -51,22 +51,7 @@
         </div>
     </div>
 
-    <?php
-    $connexion = new mysqli("127.0.0.1","root","","Megatel");
-    if($connexion->connect_errno){
-        die("connexion a échoué : ".$connexion->connect_error);
-    }
 
-    $sql = "SELECT Name FROM products;";
-    $myresult = $connexion -> query($sql);
-
-    $myresult->fetch_assoc(){
-        echo $row["Minigars"] ;
-    }
-    
-
-
-    ?>
 </header>
 
 <script>
