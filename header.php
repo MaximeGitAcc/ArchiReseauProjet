@@ -5,7 +5,7 @@
 
     <div class="login-container">
         <?php if (isset($_COOKIE['username'])): ?>
-            <p>👤 <?= htmlspecialchars($_COOKIE['username']); ?> | <a href="logout.php" class="btn-hover">Déconnexion</a></p>
+            <p>👤 <?= htmlspecialchars($_COOKIE['username']); ?> | <form action="logout.php" method="post"><button type="submit" class="btn-hover">Déconnexion</button></form></p>
         <?php else: ?>
             <button id="login-btn" class="btn-hover">Connexion</button>
         <?php endif; ?>
@@ -50,8 +50,6 @@
             </form>
         </div>
     </div>
-
-
 </header>
 
 <script>
