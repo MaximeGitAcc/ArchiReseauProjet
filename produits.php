@@ -7,12 +7,14 @@ try {
     $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Exécuter la requête SQL
-    $sql = "SELECT Name FROM products LIMIT 1";
+    $sql = "SELECT Name FROM products";
     $myresult = $connexion->query($sql);
 
     // Récupérer les données
+    $i=0;
     while ($names = $myresult->fetch(PDO::FETCH_ASSOC)) {
-        $NOM = $names['Name'];
+        $NOM[$i] = $names['Name'];
+        $i++;
     }
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
@@ -22,13 +24,13 @@ try {
             <section id="produit1">
                 <img src="IA2.png" alt="Produit 1">
                 <div class="description_produit">
-                    <p>Un produit alliant fiabilité et élégance, un outil design.<br> C'est le <?php echo $NOM; ?>. </p>
+                    <p>Un produit alliant fiabilité et élégance, un outil design.<br> C'est le <?php echo $NOM[0]; ?>. </p>
                 </div>
             </section>
             <section id="produit2">
                 <img src="IA3.png" alt="Produit 2">
                 <div class="description_produit">
-                    <p>Une technologie avancée pour révolutionner votre quotidien...</p>
+                    <p>Une technologie avancée pour révolutionner votre quotidien... <br> C'est le <?php echo $NOM[1]; ?>.</p>
                 </div>
             </section>
         </div>
