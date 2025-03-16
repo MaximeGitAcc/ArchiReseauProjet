@@ -277,6 +277,13 @@ h2 {
     text-align: center;
 }
 
+.purple{
+    font-family: 'mortal_waveregular';
+    font-size: 40px;
+    color: #ff00ff;  /* Garder la couleur rose pour le texte */
+    text-shadow: 0 0 10px #de13db, 0 0 20px #fc02ef; /* Effet néon en #0f3460 */
+}
+
 /* Boutons interactifs contact*/
 .btn-hover {
     background: none;
