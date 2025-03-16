@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Récupérer les données du formulaire
         $username = $_POST['username'];
         $password = $_POST['password'];
+        var_dump($username, $password);
 
         // Vérification si l'utilisateur existe dans la base de données
         $stmt = $connexion->prepare("SELECT * FROM users WHERE Login = :username");
@@ -17,8 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
-            // Vérification du mot de passe (avec la fonction password_verify pour les mots de passe hachés)
-            if (password_verify($password, $user['Password'])) {
+            // Vérification du mot de passe avec password_verify
+            if ($password == $user['Password']) {
                 // Mot de passe correct, création du cookie pour l'utilisateur
                 setcookie("username", $username, time() + (7 * 24 * 60 * 60), "/"); // Le cookie dure 1 semaine
                 header("Location: index.php"); // Rediriger vers la page d'accueil

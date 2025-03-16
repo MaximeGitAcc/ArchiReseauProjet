@@ -8,24 +8,23 @@
     <title>Mégatel</title>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-    let title = document.getElementById("title");
-    let text = "MEGATEL";
-    let index = 0;
+            let title = document.getElementById("title");
+            let text = "MEGATEL";
+            let index = 0;
 
-    if (!title.dataset.animated) { 
-        function typeWriter() {
-            if (index < text.length) {
-                title.innerHTML += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 300);
+            if (!title.dataset.animated) { 
+                function typeWriter() {
+                    if (index < text.length) {
+                        title.innerHTML += text.charAt(index);
+                        index++;
+                        setTimeout(typeWriter, 300);
+                    }
+                }
+                title.innerHTML = "";
+                title.dataset.animated = "true"; 
+                typeWriter();
             }
-        }
-        title.innerHTML = "";
-        title.dataset.animated = "true"; 
-        typeWriter();
-    }
-});
-
+        });
 
         window.addEventListener('scroll', function() {
             let produit = document.querySelector('#produit1 img');
@@ -35,9 +34,6 @@
             let scrollAmount = (windowHeight - produitBox.top) / windowHeight;
         });
     </script>
-
-
-    
 </head>
 <body>
 
@@ -58,12 +54,20 @@
             // Passer l'erreur à JavaScript pour l'afficher dans le pop-up
             echo "<script>
                     document.addEventListener('DOMContentLoaded', function () {
-                        const errorMessage = '{$errorMessage}';
+                        const errorMessage = '" . addslashes($errorMessage) . "';
                         if (errorMessage) {
                             const errorContainer = document.createElement('p');
                             errorContainer.style.color = 'red';
                             errorContainer.innerHTML = errorMessage;
-                            document.querySelector('#login-popup .popup-content').prepend(errorContainer);
+                            const popupContent = document.querySelector('#login-popup .popup-content');
+                            
+                            // Supprimer les anciennes erreurs pour éviter des doublons
+                            const existingErrors = popupContent.querySelectorAll('p');
+                            existingErrors.forEach(function(error) {
+                                error.remove();
+                            });
+
+                            popupContent.prepend(errorContainer);
                             document.getElementById('login-popup').style.display = 'block';
                         }
                     });
@@ -81,7 +85,6 @@
     
 </body>
 </html>
-
 
 <script>
         document.addEventListener("DOMContentLoaded", function () {
