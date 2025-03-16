@@ -5,6 +5,10 @@
         $connexion = new PDO("mysql:host=localhost;dbname=megatel;charset=utf8", "root", "");
         $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        
+        // Vérification de la connexion
+        echo "Connexion réussie à la base de données.";        
+
         // Récupération des données du formulaire
         $username = $_POST['new-username'];
         $password = $_POST['new-password'];
@@ -31,6 +35,12 @@
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':password', $hashedPassword);
             $stmt->execute();
+            
+            if ($stmt->rowCount() > 0) {
+                echo "L'utilisateur a été ajouté avec succès.";
+            } else {
+                echo "L'ajout de l'utilisateur a échoué.";
+            }            
         
             header("Location: index.php?success=registered");
             exit;

@@ -40,43 +40,40 @@
             }
         });
     </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const error = urlParams.get('error');
-    const success = urlParams.get('success');
 
-    if (error || success) {
-        let message = "";
-        let color = "red";
-
-        if (error === "password_mismatch") {
-            message = "❌ Les mots de passe ne correspondent pas.";
-        } else if (error === "username_taken") {
-            message = "❌ Ce nom d'utilisateur est déjà pris.";
-        } else if (error === "db_error") {
-            message = "❌ Erreur de base de données. Réessayez plus tard.";
-        } else if (success === "registered") {
-            message = "✅ Inscription réussie ! Vous pouvez vous connecter.";
-            color = "green";
-        }
-
-        if (message !== "") {
-            let popupMessage = document.getElementById("popup-message");
-            popupMessage.innerHTML = message;
-            popupMessage.style.color = color;
-            document.getElementById("popup").style.display = "block";
-        }
-    }
-});
-</script>
 
     
 </head>
 <body>
 
-    <?php
-        include("header.php");        
+<?php
+        include("header.php");
+
+        // Afficher les erreurs de connexion dans le pop-up si présentes
+        if (isset($_GET['error'])) {
+            $errorMessage = '';
+            if ($_GET['error'] == "incorrect_password") {
+                $errorMessage = "❌ Mot de passe incorrect.";
+            } elseif ($_GET['error'] == "username_not_found") {
+                $errorMessage = "❌ L'utilisateur n'existe pas.";
+            } elseif ($_GET['error'] == "db_error") {
+                $errorMessage = "❌ Erreur de base de données. Réessayez plus tard.";
+            }
+
+            // Passer l'erreur à JavaScript pour l'afficher dans le pop-up
+            echo "<script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const errorMessage = '{$errorMessage}';
+                        if (errorMessage) {
+                            const errorContainer = document.createElement('p');
+                            errorContainer.style.color = 'red';
+                            errorContainer.innerHTML = errorMessage;
+                            document.querySelector('#login-popup .popup-content').prepend(errorContainer);
+                            document.getElementById('login-popup').style.display = 'block';
+                        }
+                    });
+                </script>";
+        }
     ?>
 
     <?php
@@ -89,3 +86,54 @@ document.addEventListener("DOMContentLoaded", function () {
     
 </body>
 </html>
+
+
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginPopup = document.getElementById("login-popup");
+            const signupPopup = document.getElementById("signup-popup");
+            const openSignup = document.getElementById("open-signup");
+            const openLogin = document.getElementById("open-login");
+            const closeLogin = document.getElementById("btn-close-popup");
+            const closeSignup = document.getElementById("btn-close-signup");
+            const loginBtn = document.getElementById("login-btn");
+
+            // Ouvrir la pop-up de connexion
+            if (loginBtn) {
+                loginBtn.addEventListener("click", function () {
+                    loginPopup.style.display = "block";
+                });
+            }
+
+            // Ouvrir la pop-up d'inscription depuis la connexion
+            if (openSignup) {
+                openSignup.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    loginPopup.style.display = "none";
+                    signupPopup.style.display = "block";
+                });
+            }
+
+            // Ouvrir la pop-up de connexion depuis l'inscription
+            if (openLogin) {
+                openLogin.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    signupPopup.style.display = "none";
+                    loginPopup.style.display = "block";
+                });
+            }
+
+            // Fermer les pop-ups
+            if (closeLogin) {
+                closeLogin.addEventListener("click", function () {
+                    loginPopup.style.display = "none";
+                });
+            }
+
+            if (closeSignup) {
+                closeSignup.addEventListener("click", function () {
+                    signupPopup.style.display = "none";
+                });
+            }
+        });
+    </script>
