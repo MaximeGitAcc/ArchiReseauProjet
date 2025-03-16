@@ -33,11 +33,6 @@
             let produitBox = document.querySelector('#produit1').getBoundingClientRect();
             let windowHeight = window.innerHeight;
             let scrollAmount = (windowHeight - produitBox.top) / windowHeight;
-            if (scrollAmount >= 0 && scrollAmount <= 1) {
-                let translateValue = scrollAmount * 100;
-                produit.style.transform = `translateX(${translateValue}px)`;
-                description.style.transform = `translateX(${translateValue}px)`;
-            }
         });
     </script>
 

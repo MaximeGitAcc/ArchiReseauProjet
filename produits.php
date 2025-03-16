@@ -28,7 +28,7 @@ try {
                 </div>
             </section>
             <section id="produit2">
-                <img src="IA3.png" alt="Produit 2">
+                <img src="IA3.JPG" alt="Produit 2">
                 <div class="description_produit">
                     <p>Une technologie avancée pour révolutionner votre quotidien... <br> C'est le <?php echo $NOM[1]; ?>.</p>
                 </div>

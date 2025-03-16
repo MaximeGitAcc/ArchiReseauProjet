@@ -252,23 +252,21 @@ h2 {
 /* Produits */
 #produit1, #produit2 {
     display: flex;
+    flex-direction: row;
     align-items: center;
     border: 2px solid #ff00ff;
-    padding: 20px;
     margin: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px #ff00ff;
     position: relative;
     overflow: hidden;
     height: 60vh;
-    justify-content: center;
 }
 
-#produit1 img {
+#produit1 img, #produit2 img {
     width: 300px;
     height: auto;
-    position: absolute;
-    animation: rotation 5s linear infinite;
+    margin: 1rem;
 }
 
 .description_produit {
@@ -277,15 +275,6 @@ h2 {
     padding: 15px;
     border-radius: 10px;
     text-align: center;
-}
-
-@keyframes rotation {
-    0% {
-        transform: rotate(0deg) translateX(150px) rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg) translateX(150px) rotate(-360deg);
-    }
 }
 
 /* Boutons interactifs contact*/
