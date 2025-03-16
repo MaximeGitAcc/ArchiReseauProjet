@@ -73,6 +73,27 @@
                     });
                 </script>";
         }
+        
+        if (isset($_GET['error'])) {
+            $errorMessage = '';
+            if ($_GET['error'] == "password_mismatch") {
+                $errorMessage = "❌ Les mots de passe ne correspondent pas.";
+            } elseif ($_GET['error'] == "username_taken") {
+                $errorMessage = "❌ Le nom d'utilisateur est déjà pris.";
+            } elseif ($_GET['error'] == "insert_failed") {
+                $errorMessage = "❌ L'inscription a échoué. Veuillez réessayer.";
+            } elseif ($_GET['error'] == "db_error") {
+                $errorMessage = "❌ Erreur de base de données. Réessayez plus tard.";
+            }
+        
+            if ($errorMessage) {
+                echo "<p style='color:red;'>$errorMessage</p>";
+            }
+        }
+        
+        if (isset($_GET['success']) && $_GET['success'] == 'registered') {
+            echo "<p style='color:green;'>🎉 Inscription réussie ! Vous pouvez maintenant vous connecter.</p>";
+        }
     ?>
 
     <?php

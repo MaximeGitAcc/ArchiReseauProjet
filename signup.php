@@ -1,56 +1,56 @@
 <?php
 
-    try {
-        // Connexion à la base de données
-        $connexion = new PDO("mysql:host=localhost;dbname=megatel;charset=utf8", "root", "");
-        $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+try {
+    // Connexion à la base de données
+    $connexion = new PDO("mysql:host=localhost;dbname=megatel;charset=utf8", "root", "");
+    $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Vérification de la connexion
-        echo "Connexion réussie à la base de données.";        
+    // Récupération des données du formulaire
+    $username = $_POST['new-username'];
+    $password = $_POST['new-password'];
+    $confirmPassword = $_POST['confirm-password'];
 
-        // Récupération des données du formulaire
-        $username = $_POST['new-username'];
-        $password = $_POST['new-password'];
-        $confirmPassword = $_POST['confirm-password'];
-
-        if ($password !== $confirmPassword) {
-            header("Location: index.php?error=password_mismatch");
-            exit;
-        }
-
-        // Vérification si le nom d'utilisateur existe déjà
-        $stmt = $connexion->prepare("SELECT COUNT(*) FROM users WHERE Login = :username");
-        $stmt->bindParam(':username', $username);
-        $stmt->execute();
-        $count = $stmt->fetchColumn();
-
-        if ($count > 0) {
-            header("Location: index.php?error=username_taken");
-            exit;
-        }
-
-        try {
-            // Insertion du mot de passe en clair dans la base de données
-            $stmt = $connexion->prepare("INSERT INTO users (Login, Password) VALUES (:username, :password)");
-            $stmt->bindParam(':username', $username);
-            $stmt->bindParam(':password', $password);
-            $stmt->execute();
-            
-            if ($stmt->rowCount() > 0) {
-                echo "L'utilisateur a été ajouté avec succès.";
-            } else {
-                echo "L'ajout de l'utilisateur a échoué.";
-            }            
-
-            header("Location: index.php?success=registered");
-            exit;
-        } catch (PDOException $e) {
-            header("Location: index.php?error=db_error");
-            exit;
-        }
-    }
-    catch (PDOException $e) {
-        header("Location: index.php?error=db_error");
+    // Vérification que le mot de passe et sa confirmation sont identiques
+    if ($password !== $confirmPassword) {
+        header("Location: index.php?error=password_mismatch");
         exit;
     }
+
+    // Vérification si le nom d'utilisateur existe déjà
+    $stmt = $connexion->prepare("SELECT COUNT(*) FROM users WHERE Login = :username");
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+    $count = $stmt->fetchColumn();
+
+    if ($count > 0) {
+        // Si l'utilisateur existe déjà
+        header("Location: index.php?error=username_taken");
+        exit;
+    }
+
+    // Hachage du mot de passe avant insertion
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    // Insertion de l'utilisateur dans la base de données
+    $stmt = $connexion->prepare("INSERT INTO users (Login, Password) VALUES (:username, :password)");
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':password', $hashedPassword);
+    $stmt->execute();
+
+    // Vérification de l'insertion
+    if ($stmt->rowCount() > 0) {
+        // Succès de l'inscription
+        header("Location: index.php?success=registered");
+        exit;
+    } else {
+        // Erreur d'insertion
+        header("Location: index.php?error=insert_failed");
+        exit;
+    }
+
+} catch (PDOException $e) {
+    // Erreur de connexion à la base de données
+    header("Location: index.php?error=db_error");
+    exit;
+}
 ?>
