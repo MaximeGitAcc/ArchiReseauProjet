@@ -5,7 +5,7 @@
 
     <div class="login-container">
         <?php if (isset($_COOKIE['username'])): ?>
-            <p>👤 <?= htmlspecialchars($_COOKIE['username']); ?><form action="logout.php" method="post"><button type="submit" class="btn-hover">Déconnexion</button></form></p>
+            <p><?= htmlspecialchars($_COOKIE['username']); ?><form action="logout.php" method="post"><button type="submit" class="btn-hover">Déconnexion</button></form></p>
         <?php else: ?>
             <button id="login-btn" class="btn-hover">Connexion</button>
         <?php endif; ?>
@@ -40,6 +40,7 @@
                 <input type="text" id="username" name="username" required>
                 <br>
                 <br>
+                <br>
                 <label for="password">Mot de passe :</label>
                 <br>
                 <input type="password" id="password" name="password" required>
@@ -47,9 +48,35 @@
                 <br>
                 <br>
                 <button type="submit" class="btn-hover">Se connecter</button>
+                <p class="small-text">Pas encore de compte ? <a href="#" id="open-signup">S'inscrire</a></p>
             </form>
         </div>
     </div>
+
+    <!-- Pop-up d'inscription -->
+<div id="signup-popup" class="popup">
+    <div class="popup-content">
+        <button id="btn-close-signup" class="btn-hover">&times;</button>
+        <h2>Inscription</h2>
+        <form action="signup.php" method="post">
+            <label for="new-username">Nom d'utilisateur :</label>
+            <input type="text" id="new-username" name="new-username" required>
+            <br>
+            <br>
+            <label for="new-password">Mot de passe :</label>
+            <br>
+            <input type="password" id="new-password" name="new-password" required>
+            <br>
+            <br>
+            <label for="confirm-password">Confirmer le mot de passe :</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            <br>
+            <br>
+            <button type="submit" class="btn-hover">S'inscrire</button>
+        </form>
+        <p class="small-text">Déjà un compte ? <a href="#" id="open-login">Se connecter</a></p>
+    </div>
+</div>
 </header>
 
 <script>
@@ -59,20 +86,50 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("nav-links").classList.toggle("show");
     });
 
-    // Gestion de la pop-up de connexion
-    const loginBtn = document.getElementById("login-btn");
+    // Sélection des éléments
     const loginPopup = document.getElementById("login-popup");
-    const closeBtn = document.getElementById("btn-close-popup");
+    const signupPopup = document.getElementById("signup-popup");
+    const openSignup = document.getElementById("open-signup");
+    const openLogin = document.getElementById("open-login");
+    const closeLogin = document.getElementById("btn-close-popup");
+    const closeSignup = document.getElementById("btn-close-signup");
+    const loginBtn = document.getElementById("login-btn");
 
+    // Ouvrir la pop-up de connexion
     if (loginBtn) {
         loginBtn.addEventListener("click", function () {
             loginPopup.style.display = "block";
         });
     }
 
-    if (closeBtn) {
-        closeBtn.addEventListener("click", function () {
+    // Ouvrir la pop-up d'inscription depuis la connexion
+    if (openSignup) {
+        openSignup.addEventListener("click", function (event) {
+            event.preventDefault();
             loginPopup.style.display = "none";
+            signupPopup.style.display = "block";
+        });
+    }
+
+    // Ouvrir la pop-up de connexion depuis l'inscription
+    if (openLogin) {
+        openLogin.addEventListener("click", function (event) {
+            event.preventDefault();
+            signupPopup.style.display = "none";
+            loginPopup.style.display = "block";
+        });
+    }
+
+    // Fermer les pop-ups
+    if (closeLogin) {
+        closeLogin.addEventListener("click", function () {
+            loginPopup.style.display = "none";
+        });
+    }
+
+    if (closeSignup) {
+        closeSignup.addEventListener("click", function () {
+            signupPopup.style.display = "none";
         });
     }
 });

@@ -40,11 +40,43 @@
             }
         });
     </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
+    const success = urlParams.get('success');
+
+    if (error || success) {
+        let message = "";
+        let color = "red";
+
+        if (error === "password_mismatch") {
+            message = "❌ Les mots de passe ne correspondent pas.";
+        } else if (error === "username_taken") {
+            message = "❌ Ce nom d'utilisateur est déjà pris.";
+        } else if (error === "db_error") {
+            message = "❌ Erreur de base de données. Réessayez plus tard.";
+        } else if (success === "registered") {
+            message = "✅ Inscription réussie ! Vous pouvez vous connecter.";
+            color = "green";
+        }
+
+        if (message !== "") {
+            let popupMessage = document.getElementById("popup-message");
+            popupMessage.innerHTML = message;
+            popupMessage.style.color = color;
+            document.getElementById("popup").style.display = "block";
+        }
+    }
+});
+</script>
+
+    
 </head>
 <body>
 
     <?php
-        include("header.php")
+        include("header.php");        
     ?>
 
     <?php

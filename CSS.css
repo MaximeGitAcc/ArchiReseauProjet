@@ -329,3 +329,16 @@ footer {
     font-size: 14px;
     background: rgba(0, 0, 0, 0.8);
 }
+
+.small-text {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 10px;
+}
+.small-text a {
+    color: #ff00ff;
+    text-decoration: none;
+}
+.small-text a:hover {
+    text-decoration: underline;
+}
