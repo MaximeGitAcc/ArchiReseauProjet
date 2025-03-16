@@ -25,15 +25,14 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `orders`
+-- Structure de la table `basket`
 --
 
-CREATE TABLE `orders` (
-  `ID` int(3) NOT NULL,
-  `basket_number` int(3) NOT NULL,
-  `user_name` varchar(30) NOT NULL,
-  `product_name` varchar(30) NOT NULL,
-  `product_price` int(4) NOT NULL
+CREATE TABLE `basket` (
+  `ID` int(10) NOT NULL,
+  `Date` date NOT NULL,
+  `Payment_method` varchar(255) NOT NULL,
+  `Delivery_address` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -41,9 +40,9 @@ CREATE TABLE `orders` (
 --
 
 --
--- Index pour la table `orders`
+-- Index pour la table `basket`
 --
-ALTER TABLE `orders`
+ALTER TABLE `basket`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -51,10 +50,10 @@ ALTER TABLE `orders`
 --
 
 --
--- AUTO_INCREMENT pour la table `orders`
+-- AUTO_INCREMENT pour la table `basket`
 --
-ALTER TABLE `orders`
-  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT;COMMIT;
+ALTER TABLE `basket`
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
