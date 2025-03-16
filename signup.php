@@ -1,5 +1,5 @@
 <?php
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 try {
     // Connexion à la base de données
     $connexion = new PDO("mysql:host=localhost;dbname=megatel;charset=utf8", "root", "");
@@ -32,9 +32,10 @@ try {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Insertion de l'utilisateur dans la base de données
-    $stmt = $connexion->prepare("INSERT INTO users (Login, Password) VALUES (:username, :password)");
+    $stmt = $connexion->prepare("INSERT INTO users (Login, Password, Email) VALUES (:username, :password, :email)");
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':password', $hashedPassword);
+    $stmt->bindParam(':password', $email);
     $stmt->execute();
 
     // Vérification de l'insertion
@@ -49,8 +50,9 @@ try {
     }
 
 } catch (PDOException $e) {
-    // Erreur de connexion à la base de données
+    // En cas d'erreur avec la base de données
     header("Location: index.php?error=db_error");
-    exit;
+    exit();
+}
 }
 ?>
