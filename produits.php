@@ -44,6 +44,7 @@ try {
                 <div class="description_produit">
                 <p>Un produit alliant fiabilité et élégance, un outil design.<br> C'est le <span class="purple"> <?php echo $NOM[0]; ?></span>. </p>
                 <p>Et avec un prix mini de <span class="purple"> <?php echo $PRICE[0]; ?> $</span>!! </p>
+                <button id="add-btn1" class="btn-hover">Ajouter au panier</button>
                 </div>
             </section>
             <section id="produit2">
@@ -51,6 +52,7 @@ try {
                 <div class="description_produit">
                     <p>Une technologie avancée pour révolutionner votre quotidien... <br> C'est le <span class="purple"> <?php echo $NOM[1]; ?></span>.</p>
                     <p>Et avec un prix mini de <span class="purple"><?php echo $PRICE[1]; ?> $</span>!! </p>
+                    <button id="add-btn2" class="btn-hover">Ajouter au panier</button>
                 </div>
             </section>
         </div>

@@ -284,6 +284,13 @@ h2 {
     text-shadow: 0 0 10px #de13db, 0 0 20px #fc02ef; /* Effet néon en #0f3460 */
 }
 
+button#add-btn1 {
+    float: right;
+}
+button#add-btn2 {
+    float: right;
+}
+
 /* Boutons interactifs contact*/
 .btn-hover {
     background: none;
