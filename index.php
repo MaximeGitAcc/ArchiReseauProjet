@@ -88,50 +88,61 @@
 
 <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const loginPopup = document.getElementById("login-popup");
-            const signupPopup = document.getElementById("signup-popup");
-            const openSignup = document.getElementById("open-signup");
-            const openLogin = document.getElementById("open-login");
-            const closeLogin = document.getElementById("btn-close-popup");
-            const closeSignup = document.getElementById("btn-close-signup");
-            const loginBtn = document.getElementById("login-btn");
+    const loginPopup = document.getElementById("login-popup");
+    const signupPopup = document.getElementById("signup-popup");
+    
+    // Fermer la pop-up de connexion ou d'inscription si elles sont visibles au rechargement de la page
+    if (loginPopup && loginPopup.style.display !== "none") {
+        loginPopup.style.display = "none";
+    }
+    if (signupPopup && signupPopup.style.display !== "none") {
+        signupPopup.style.display = "none";
+    }
 
-            // Ouvrir la pop-up de connexion
-            if (loginBtn) {
-                loginBtn.addEventListener("click", function () {
-                    loginPopup.style.display = "block";
-                });
-            }
+    // Ton code existant pour gérer les interactions avec les pop-ups (ouverture/fermeture)
+    const openSignup = document.getElementById("open-signup");
+    const openLogin = document.getElementById("open-login");
+    const closeLogin = document.getElementById("btn-close-popup");
+    const closeSignup = document.getElementById("btn-close-signup");
+    const loginBtn = document.getElementById("login-btn");
 
-            // Ouvrir la pop-up d'inscription depuis la connexion
-            if (openSignup) {
-                openSignup.addEventListener("click", function (event) {
-                    event.preventDefault();
-                    loginPopup.style.display = "none";
-                    signupPopup.style.display = "block";
-                });
-            }
-
-            // Ouvrir la pop-up de connexion depuis l'inscription
-            if (openLogin) {
-                openLogin.addEventListener("click", function (event) {
-                    event.preventDefault();
-                    signupPopup.style.display = "none";
-                    loginPopup.style.display = "block";
-                });
-            }
-
-            // Fermer les pop-ups
-            if (closeLogin) {
-                closeLogin.addEventListener("click", function () {
-                    loginPopup.style.display = "none";
-                });
-            }
-
-            if (closeSignup) {
-                closeSignup.addEventListener("click", function () {
-                    signupPopup.style.display = "none";
-                });
-            }
+    // Ouvrir la pop-up de connexion
+    if (loginBtn) {
+        loginBtn.addEventListener("click", function () {
+            loginPopup.style.display = "block";
         });
-    </script>
+    }
+
+    // Ouvrir la pop-up d'inscription depuis la connexion
+    if (openSignup) {
+        openSignup.addEventListener("click", function (event) {
+            event.preventDefault();
+            loginPopup.style.display = "none";
+            signupPopup.style.display = "block";
+        });
+    }
+
+    // Ouvrir la pop-up de connexion depuis l'inscription
+    if (openLogin) {
+        openLogin.addEventListener("click", function (event) {
+            event.preventDefault();
+            signupPopup.style.display = "none";
+            loginPopup.style.display = "block";
+        });
+    }
+
+    // Fermer les pop-ups
+    if (closeLogin) {
+        closeLogin.addEventListener("click", function () {
+            loginPopup.style.display = "none";
+        });
+    }
+
+    if (closeSignup) {
+        closeSignup.addEventListener("click", function () {
+            signupPopup.style.display = "none";
+        });
+    }
+});
+
+</script>
