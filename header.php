@@ -72,6 +72,11 @@
             <input type="password" id="confirm-password" name="confirm-password" required>
             <br>
             <br>
+            <label for="new-email">Email :</label>
+            <br>
+            <input type="email" id="new-email" name="new-email" required>
+            <br>
+            <br>
             <button type="submit" class="btn-hover">S'inscrire</button>
         </form>
         <p class="small-text">Déjà un compte ? <a href="#" id="open-login">Se connecter</a></p>

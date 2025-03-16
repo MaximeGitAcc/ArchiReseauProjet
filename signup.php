@@ -9,6 +9,7 @@ try {
     $username = $_POST['new-username'];
     $password = $_POST['new-password'];
     $confirmPassword = $_POST['confirm-password'];
+    $email = $_POST['new-email'];
 
     // Vérification que le mot de passe et sa confirmation sont identiques
     if ($password !== $confirmPassword) {
@@ -22,6 +23,12 @@ try {
     $stmt->execute();
     $count = $stmt->fetchColumn();
 
+    // // Vérification si l'email existe déjà
+    // $stmt = $connexion->prepare("SELECT COUNT(*) FROM users WHERE Email = :email");
+    // $stmt->bindParam(':email', $email);
+    // $stmt->execute();
+    // $count = $stmt->fetchColumn();
+
     if ($count > 0) {
         // Si l'utilisateur existe déjà
         header("Location: index.php?error=username_taken");
@@ -29,13 +36,13 @@ try {
     }
 
     // Hachage du mot de passe avant insertion
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $hashedPassword = sha1($password);
 
     // Insertion de l'utilisateur dans la base de données
     $stmt = $connexion->prepare("INSERT INTO users (Login, Password, Email) VALUES (:username, :password, :email)");
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':password', $hashedPassword);
-    $stmt->bindParam(':password', $email);
+    $stmt->bindParam(':email', $email);
     $stmt->execute();
 
     // Vérification de l'insertion

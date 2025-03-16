@@ -8,7 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Récupérer les données du formulaire
         $username = $_POST['username'];
         $password = $_POST['password'];
-        var_dump($username, $password);
+
+        // Hachage du mot de passe avant insertion
+        $hashedPassword = sha1($password);
 
         // Vérification si l'utilisateur existe dans la base de données
         $stmt = $connexion->prepare("SELECT * FROM users WHERE Login = :username");
@@ -19,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($user) {
             // Vérification du mot de passe avec password_verify
-            if ($password == $user['Password']) {
+            if ($hashedPassword == $user['Password']) {
                 // Mot de passe correct, création du cookie pour l'utilisateur
                 setcookie("username", $username, time() + (7 * 24 * 60 * 60), "/"); // Le cookie dure 1 semaine
                 header("Location: index.php"); // Rediriger vers la page d'accueil
