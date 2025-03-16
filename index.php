@@ -41,59 +41,42 @@
         include("header.php");
 
         // Afficher les erreurs de connexion dans le pop-up si présentes
-        if (isset($_GET['error'])) {
-            $errorMessage = '';
-            if ($_GET['error'] == "incorrect_password") {
-                $errorMessage = "❌ Mot de passe incorrect.";
-            } elseif ($_GET['error'] == "username_not_found") {
-                $errorMessage = "❌ L'utilisateur n'existe pas.";
-            } elseif ($_GET['error'] == "db_error") {
-                $errorMessage = "❌ Erreur de base de données. Réessayez plus tard.";
-            }
+    if (isset($_GET['error'])) {
+        $errorMessage = '';
+        if ($_GET['error'] == "incorrect_password") {
+            $errorMessage = "❌ Mot de passe incorrect.";
+        } elseif ($_GET['error'] == "username_not_found") {
+            $errorMessage = "❌ L'utilisateur n'existe pas.";
+        } elseif ($_GET['error'] == "db_error") {
+            $errorMessage = "❌ Erreur de base de données. Réessayez plus tard.";
+        } elseif ($_GET['error'] == "password_mismatch") {
+            $errorMessage = "❌ Les mots de passe ne correspondent pas.";
+        } elseif ($_GET['error'] == "username_taken") {
+            $errorMessage = "❌ Ce nom d'utilisateur est déjà pris.";
+        }
 
-            // Passer l'erreur à JavaScript pour l'afficher dans le pop-up
-            echo "<script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const errorMessage = '" . addslashes($errorMessage) . "';
-                        if (errorMessage) {
-                            const errorContainer = document.createElement('p');
-                            errorContainer.style.color = 'red';
-                            errorContainer.innerHTML = errorMessage;
-                            const popupContent = document.querySelector('#login-popup .popup-content');
-                            
-                            // Supprimer les anciennes erreurs pour éviter des doublons
-                            const existingErrors = popupContent.querySelectorAll('p');
-                            existingErrors.forEach(function(error) {
-                                error.remove();
-                            });
+        // Passer l'erreur à JavaScript pour l'afficher dans le pop-up
+        echo "<script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const errorMessage = '" . addslashes($errorMessage) . "';
+                    if (errorMessage) {
+                        const errorContainer = document.createElement('p');
+                        errorContainer.style.color = 'red';
+                        errorContainer.innerHTML = errorMessage;
+                        const popupContent = document.querySelector('#signup-popup .popup-content');
+                        
+                        // Supprimer les anciennes erreurs pour éviter des doublons
+                        const existingErrors = popupContent.querySelectorAll('p');
+                        existingErrors.forEach(function(error) {
+                            error.remove();
+                        });
 
-                            popupContent.prepend(errorContainer);
-                            document.getElementById('login-popup').style.display = 'block';
-                        }
-                    });
-                </script>";
-        }
+                        popupContent.prepend(errorContainer);
+                    }
+                });
+            </script>";
+    }
         
-        if (isset($_GET['error'])) {
-            $errorMessage = '';
-            if ($_GET['error'] == "password_mismatch") {
-                $errorMessage = "❌ Les mots de passe ne correspondent pas.";
-            } elseif ($_GET['error'] == "username_taken") {
-                $errorMessage = "❌ Le nom d'utilisateur est déjà pris.";
-            } elseif ($_GET['error'] == "insert_failed") {
-                $errorMessage = "❌ L'inscription a échoué. Veuillez réessayer.";
-            } elseif ($_GET['error'] == "db_error") {
-                $errorMessage = "❌ Erreur de base de données. Réessayez plus tard.";
-            }
-        
-            if ($errorMessage) {
-                echo "<p style='color:red;'>$errorMessage</p>";
-            }
-        }
-        
-        if (isset($_GET['success']) && $_GET['success'] == 'registered') {
-            echo "<p style='color:green;'>🎉 Inscription réussie ! Vous pouvez maintenant vous connecter.</p>";
-        }
     ?>
 
     <?php
@@ -109,61 +92,61 @@
 
 <script>
         document.addEventListener("DOMContentLoaded", function () {
-    const loginPopup = document.getElementById("login-popup");
-    const signupPopup = document.getElementById("signup-popup");
-    
-    // Fermer la pop-up de connexion ou d'inscription si elles sont visibles au rechargement de la page
-    if (loginPopup && loginPopup.style.display !== "none") {
-        loginPopup.style.display = "none";
-    }
-    if (signupPopup && signupPopup.style.display !== "none") {
-        signupPopup.style.display = "none";
-    }
-
-    // Ton code existant pour gérer les interactions avec les pop-ups (ouverture/fermeture)
-    const openSignup = document.getElementById("open-signup");
-    const openLogin = document.getElementById("open-login");
-    const closeLogin = document.getElementById("btn-close-popup");
-    const closeSignup = document.getElementById("btn-close-signup");
-    const loginBtn = document.getElementById("login-btn");
-
-    // Ouvrir la pop-up de connexion
-    if (loginBtn) {
-        loginBtn.addEventListener("click", function () {
-            loginPopup.style.display = "block";
-        });
-    }
-
-    // Ouvrir la pop-up d'inscription depuis la connexion
-    if (openSignup) {
-        openSignup.addEventListener("click", function (event) {
-            event.preventDefault();
+        const loginPopup = document.getElementById("login-popup");
+        const signupPopup = document.getElementById("signup-popup");
+        
+        // Fermer la pop-up de connexion ou d'inscription si elles sont visibles au rechargement de la page
+        if (loginPopup && loginPopup.style.display !== "none") {
             loginPopup.style.display = "none";
-            signupPopup.style.display = "block";
-        });
-    }
-
-    // Ouvrir la pop-up de connexion depuis l'inscription
-    if (openLogin) {
-        openLogin.addEventListener("click", function (event) {
-            event.preventDefault();
+        }
+        if (signupPopup && signupPopup.style.display !== "none") {
             signupPopup.style.display = "none";
-            loginPopup.style.display = "block";
-        });
-    }
+        }
 
-    // Fermer les pop-ups
-    if (closeLogin) {
-        closeLogin.addEventListener("click", function () {
-            loginPopup.style.display = "none";
-        });
-    }
+        // Ton code existant pour gérer les interactions avec les pop-ups (ouverture/fermeture)
+        const openSignup = document.getElementById("open-signup");
+        const openLogin = document.getElementById("open-login");
+        const closeLogin = document.getElementById("btn-close-popup");
+        const closeSignup = document.getElementById("btn-close-signup");
+        const loginBtn = document.getElementById("login-btn");
 
-    if (closeSignup) {
-        closeSignup.addEventListener("click", function () {
-            signupPopup.style.display = "none";
-        });
-    }
-});
+        // Ouvrir la pop-up de connexion
+        if (loginBtn) {
+            loginBtn.addEventListener("click", function () {
+                loginPopup.style.display = "block";
+            });
+        }
+
+        // Ouvrir la pop-up d'inscription depuis la connexion
+        if (openSignup) {
+            openSignup.addEventListener("click", function (event) {
+                event.preventDefault();
+                loginPopup.style.display = "none";
+                signupPopup.style.display = "block";
+            });
+        }
+
+        // Ouvrir la pop-up de connexion depuis l'inscription
+        if (openLogin) {
+            openLogin.addEventListener("click", function (event) {
+                event.preventDefault();
+                signupPopup.style.display = "none";
+                loginPopup.style.display = "block";
+            });
+        }
+
+        // Fermer les pop-ups
+        if (closeLogin) {
+            closeLogin.addEventListener("click", function () {
+                loginPopup.style.display = "none";
+            });
+        }
+
+        if (closeSignup) {
+            closeSignup.addEventListener("click", function () {
+                signupPopup.style.display = "none";
+            });
+        }
+    });
 
 </script>
