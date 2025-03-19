@@ -1,29 +1,6 @@
 <header>
-<div class="login-container">
-        <?php if (isset($_COOKIE['username'])): ?>
-            <p><?= htmlspecialchars($_COOKIE['username']); ?><form action="logout.php" method="post"><button type="submit" class="btn-hover">Déconnexion</button></form></p>
-        <?php else: ?>
-            <form action="login.php" method="post">
-                <label for="username">Login :</label>
-                <br>
-                <input type="text" id="username" name="username" required>
-                <br>
-                <br>
-                <br>
-                <label for="password">Mot de passe :</label>
-                <br>
-                <input type="password" id="password" name="password" required>
-                <br>
-                <br>
-                <br>
-                <button type="submit" class="btn-hover">Se connecter</button>
-            </form>
-            <form action="inscription.php" method="post">
-            <button type="submit" class="btn-hover">Inscription</button>
-            </form>
-        <?php endif; ?>
-    </div>
 
+        
     <!-- La barre de nav comprend les différents sujets de conversation -->
     <nav>
         <?php
@@ -60,7 +37,33 @@
         
 
     </nav>
+
     <h1 id="title"></h1>
+
+    <div class="login-container">
+        <?php if (isset($_COOKIE['username'])): ?>
+            <p><?= htmlspecialchars($_COOKIE['username']); ?><form action="logout.php" method="post"><button type="submit" class="btn-hover">Déconnexion</button></form></p>
+        <?php else: ?>
+            <form action="login.php" method="post">
+                <label for="username">Login :</label>
+                <br>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <br>
+                <br>
+                <label for="password">Mot de passe :</label>
+                <br>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <br>
+                <br>
+                <button type="submit" class="btn-hover">Se connecter</button>
+            </form>
+            <form action="inscription.php" method="post">
+            <button type="submit" class="btn-hover">Inscription</button>
+            </form>
+        <?php endif; ?>
+    </div>
 
 </header>
 

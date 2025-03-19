@@ -12,11 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Hachage du mot de passe avant insertion
         $hashedPassword = sha1($password);
 
+        $hashedlogin = sha1($username);
+
         // Vérification si l'utilisateur existe dans la base de données
-        $stmt = $connexion->prepare("SELECT * FROM utilisateurs WHERE login = :username");
-        $stmt->bindParam(':username', $username);
+        $stmt = $connexion->prepare("SELECT * FROM utilisateurs WHERE login = :hashedlogin");
+        $stmt->bindParam(':hashedlogin', $hashedlogin);
         $stmt->execute();
-        
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {

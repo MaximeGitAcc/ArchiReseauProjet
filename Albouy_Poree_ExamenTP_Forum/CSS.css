@@ -25,6 +25,10 @@ body::-webkit-scrollbar {
     display: none; /* Pour Chrome, Safari et Edge */
 }
 
+.login-container {
+    z-index: 100; /* S'assure que c'est au-dessus de tout le contenu */
+
+}
 /* En-tête */
 header {
     display: absolute;
@@ -56,7 +60,7 @@ nav {
     top: 0;  /* Reste en haut */
     left: 0; /* Reste à gauche */
     right: 0; /* Reste à droite */
-    z-index: 50; /* S'assure que c'est au-dessus de tout le contenu */
+    z-index: 50; 
 }
 
 
