@@ -53,8 +53,10 @@ try {
                             $connexion = new PDO("mysql:host=localhost;dbname=megatel;charset=utf8", "root", "");
                             $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                            $username = $_COOKIE['username'];
-                            echo $username;
+
+                            if (isset($_COOKIE['username'])) {
+                                $username = $_COOKIE['username'];
+                                echo "Le cookie existe : " . $username;
 
                                 // Insertion dans la base de données
                                 $stmt = $connexion->prepare("INSERT INTO orders (basket_number, user_name, product_name, product_price) VALUES (:basket ,:username, :product, :price)");
@@ -64,6 +66,9 @@ try {
                                 $stmt->bindParam(':price', $PRICE[0]);
                                 $stmt->execute();
                                 $basket= $basket+1;
+                            } else {
+                                echo "Connectez-vous !!";
+                            }
 
                     }
                     ?>
@@ -89,8 +94,10 @@ try {
                             $connexion = new PDO("mysql:host=localhost;dbname=megatel;charset=utf8", "root", "");
                             $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                            $username = $_COOKIE['username'];
-                            echo $username;
+
+                            if (isset($_COOKIE['username'])) {
+                                $username = $_COOKIE['username'];
+                                echo "Le cookie existe : " . $username;
 
                                 // Insertion dans la base de données
                                 $stmt = $connexion->prepare("INSERT INTO orders (basket_number, user_name, product_name, product_price) VALUES (:basket ,:username, :product, :price)");
@@ -100,6 +107,9 @@ try {
                                 $stmt->bindParam(':price', $PRICE[1]);
                                 $stmt->execute();
                                 $basket= $basket+1;
+                            } else {
+                                echo "Connectez-vous !!";
+                            }
 
                     }
                     ?>
