@@ -54,7 +54,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 100px;
     position: fixed; /* Permet de mieux gérer le positionnement du menu */
     top: 0;  /* Reste en haut */
     left: 0; /* Reste à gauche */
@@ -63,7 +63,7 @@ nav {
 }
 
 /* Style des liens */
-.nav-links a {
+a {
     color: white;
     padding: 10px 15px;
     text-decoration: none;
@@ -71,35 +71,9 @@ nav {
     white-space: nowrap; /* Empêche le passage à la ligne */
 }
 
-.nav-links a:hover {
+a:hover {
     background-color: #ff00ff;
     border-radius: 5px;
-}
-
-/* Popup */
-.popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 100;
-}
-
-.popup-content {
-    color: white;
-    text-align: center;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 20px;
 }
 
 /* Boutons interactifs contact*/
@@ -140,49 +114,6 @@ h2 {
     height: 150vh;
 }
 
-/* Produits */
-#produit1, #produit2 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: 2px solid #ff00ff;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ff00ff;
-    position: relative;
-    overflow: hidden;
-    height: 60vh;
-}
-
-#produit1 img, #produit2 img {
-    width: 300px;
-    height: auto;
-    margin: 1rem;
-}
-
-.description_produit {
-    width: 60%;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.purple{
-    font-family: 'mortal_waveregular';
-    font-size: 40px;
-    color: #ff00ff;  /* Garder la couleur rose pour le texte */
-    text-shadow: 0 0 10px #de13db, 0 0 20px #fc02ef; /* Effet néon en #0f3460 */
-}
-
-button#add-btn1 {
-    float: right;
-}
-button#add-btn2 {
-    float: right;
-}
-
-/* Boutons interactifs contact*/
 .btn-hover {
     background: none;
     border: 2px solid #ff00ff;
@@ -200,28 +131,13 @@ button#add-btn2 {
     box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
 }
 
-/* Section Contact */
-#contact form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-input, textarea {
-    width: 60%;
-    padding: 10px;
-    border: 2px solid #ff00ff;
-    background: black;
-    color: white;
-    border-radius: 5px;
-}
-
 /* Pied de page */
 footer {
     text-align: center;
     padding: 10px;
     font-size: 14px;
     background: rgba(0, 0, 0, 0.8);
+    margin-top: 70vh;
 }
 
 .small-text {
@@ -245,52 +161,6 @@ h3 {
     text-shadow: 0 0 10px #de13db, 0 0 20px #fc02ef; /* Effet néon en #0f3460 */
 }
 
-li {
-    list-style-type: none;
-  }
 
-.container {
-    max-width: 800px; /* Largeur maximale du texte */
-    margin: 0 auto; /* Centre le bloc horizontalement */
-    padding: 20px; /* Ajoute un peu d’espace intérieur */
-}
 
-#nous {
-    padding: 20px 0; /* Réduit l'espace en haut et en bas de la section */
-}
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 10px; /* Réduit l'espace intérieur */
-}
-
-.intro, .team, .timeline {
-    margin-bottom: 0px; /* Diminue l'espace entre les sections */
-    padding-bottom: 0px;
-}
-
-ul {
-    padding-left: 20px; /* Ajuste l'indentation des listes */
-}
-
-.founders {
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Diminue l'espace entre les fondateurs */
-}
-
-.founder{
-    padding: 0px;
-    padding-top: 24px;
-}
-
-.timeline ul {
-    list-style-type: none; /* Supprime les puces si nécessaire */
-    padding-left: 0;
-}
-
-.timeline li {
-    margin-bottom: 10px; /* Réduit l'espace entre les éléments de la timeline */
-}
