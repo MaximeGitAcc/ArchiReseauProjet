@@ -367,6 +367,14 @@ footer {
     text-decoration: underline;
 }
 
+h3 {
+    margin: 0px;
+    font-family: 'mortal_waveregular';
+    font-size: 40px;
+    color: #ff00ff;  /* Garder la couleur rose pour le texte */
+    text-shadow: 0 0 10px #de13db, 0 0 20px #fc02ef; /* Effet néon en #0f3460 */
+}
+
 li {
     list-style-type: none;
   }
@@ -375,4 +383,44 @@ li {
     max-width: 800px; /* Largeur maximale du texte */
     margin: 0 auto; /* Centre le bloc horizontalement */
     padding: 20px; /* Ajoute un peu d’espace intérieur */
+}
+
+#nous {
+    padding: 20px 0; /* Réduit l'espace en haut et en bas de la section */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px; /* Réduit l'espace intérieur */
+}
+
+.intro, .team, .timeline {
+    margin-bottom: 0px; /* Diminue l'espace entre les sections */
+    padding-bottom: 0px;
+}
+
+ul {
+    padding-left: 20px; /* Ajuste l'indentation des listes */
+}
+
+.founders {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Diminue l'espace entre les fondateurs */
+}
+
+.founder{
+    padding: 0px;
+    padding-top: 24px;
+}
+
+.timeline ul {
+    list-style-type: none; /* Supprime les puces si nécessaire */
+    padding-left: 0;
+}
+
+.timeline li {
+    margin-bottom: 10px; /* Réduit l'espace entre les éléments de la timeline */
 }
