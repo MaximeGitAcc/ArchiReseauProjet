@@ -16,27 +16,23 @@
             $connexion = new PDO("mysql:host=localhost;dbname=forum;charset=utf8", "root", "");
             $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // On va trouver les différentes discussions dans la base de données
-            $sql = "SELECT * FROM sujets";
-            $result = $connexion->query($sql);
-            $i = 0;
+            ////////////// LE NOM  /////////////
+            // Exécuter la requête SQL
+            $sql = "SELECT noms FROM sujets";
+            $myresult = $connexion->query($sql);
 
-            while ($row = mysqli_fetch_assoc($result)) {
-                $discussion[$i] =  $row["noms"];
-                ?><span><a id="<?php$discussion[0]?>.php" href= "Discussion.php" ><?php echo $discussion[0]?></a></span><?php
-                $i+=1;
+            // Récupérer les données
+            $i=0;
+            while ($noms = $myresult->fetch(PDO::FETCH_ASSOC)) {
+                $discussion[$i] =  $noms['noms'];
+                //Les différents sujets sont alors exposés 
+                ?><span><a id="<?php$discussion[$i]?>.php" href= "Discussion.php" ><?php echo $discussion[$i]?></a></span><?php
+                $i++;
             }
-            
-        ?>
-        <!-- Les différents sujets sont alors exposés -->
-        <div id="nav-links" class="nav-links">
-            <span><a id="<?php$discussion[0]?>.php" href= "Discussion.php" ><?php echo $discussion[0]?></a></span>
-            <span><a id="<?php$discussion[1]?>.php" href= "Discussion.php"><?php echo $discussion[1]?></a></span>
-            <span><a id="<?php$discussion[2]?>.php" href= "Discussion.php"><?php echo $discussion[2]?></a></span>
-            <span><a id="<?php$discussion[3]?>.php" href= "Discussion.php"><?php echo $discussion[3]?></a></span>
 
-            <!--setcookie("sujet", $sujet, time() + (7 * 24 * 60 * 60), "/"); // Le cookie dure 1 semaine-->
-        </div>
+        ?>
+        
+
     </nav>
     <h1 id="title"></h1>
 
