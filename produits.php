@@ -40,7 +40,7 @@ try {
                 <img src="IA2.png" alt="Produit 1">
                 <div class="description_produit">
                 <p>Un produit alliant fiabilité et élégance, un outil design.<br> C'est le <span class="purple"> <?php echo $NOM[0]; ?></span>. </p>
-                <p>Et avec un prix mini de <span class="purple"> <?php echo $PRICE[0]; ?> $</span>!! </p>
+                <p>Et avec un prix mini de <span class="purple"> <?php echo $PRICE[0]; ?> $</span> </p>
                 <!-- Formulaire pour envoyer la requête POST -->
                 <form method="POST">
                         <button id="add-btn2" class="btn-hover" type="submit" name="mon_bouton1">Ajouter au panier</button>
@@ -77,7 +77,7 @@ try {
                     <p>Une technologie avancée pour révolutionner votre quotidien... <br> 
                     C'est le <span class="purple"> <?php echo $NOM[1]; ?></span>.
                     </p>
-                    <p>Et avec un prix mini de <span class="purple"><?php echo $PRICE[1]; ?> $</span>!! </p>
+                    <p>Et avec un prix mini de <span class="purple"><?php echo $PRICE[1]; ?> $</span> </p>
 
                     <!-- Formulaire pour envoyer la requête POST -->
                     <form method="POST">
