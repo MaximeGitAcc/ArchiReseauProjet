@@ -1,0 +1,11 @@
+<main>
+
+    <?php
+        // Connexion à la base de données
+        $connexion = new PDO("mysql:host=localhost;dbname=forum;charset=utf8", "root", "");
+        $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        if $_COOKIE['sujet']
+    ?>
+        
+</main>
