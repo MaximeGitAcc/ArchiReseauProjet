@@ -45,11 +45,22 @@
             while ($noms = $myresult->fetch(PDO::FETCH_ASSOC)) {
                 $discussion[$i] =  $noms['noms'];
                 //Les différents sujets sont alors exposés 
-                ?><span><a id="<?php$discussion[$i]?>.php" href= "Discussion.php" ><?php echo $discussion[$i]?></a></span><?php
+                ?><span><a class="sujets" id="<?php$discussion[$i]?>.php" href= "Discussion.php?sujet=<?php$i?>" ><?php echo $discussion[$i]?></a></span><?php
                 $i++;
             }
 
         ?>
+
+        <script>
+            const sujet = document.getElementsByClassName("sujets");
+
+            if (sujet) {
+                sujet.addEventListener("click", function () {
+                    <?php setcookie("sujet", $username, time() + (7 * 24 * 60 * 60), "/"); // Le cookie dure 1 semaine?>
+                });
+            }
+
+        </script>
         
 
     </nav>
