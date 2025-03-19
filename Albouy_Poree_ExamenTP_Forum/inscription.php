@@ -3,7 +3,6 @@
         <h2>Inscription</h2>
         <form action="signup.php" method="post">
             <label for="new-password">Mot de passe :</label>
-            <br>
             <input type="password" id="new-password" name="new-password" required>
             <br>
             <br>
