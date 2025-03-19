@@ -18,7 +18,7 @@ body {
     color: white;
     background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
     background-size: 400% 400%;
-    font-size: 10px;
+    font-size: 18px;
 }
 
 body::-webkit-scrollbar {
@@ -33,20 +33,19 @@ header {
     height: 20vh;
 }
 
+main {
+    margin-top: 20vh;
+}
+
 h1 {
     font-family: 'mortal_waveregular';
     font-size: 100px;
     color: #ff00ff;  /* Garder la couleur rose pour le texte */
     text-shadow: 0 0 10px #de13db, 0 0 20px #fc02ef; /* Effet néon en #0f3460 */
 }
-    
-.login-container {
-    height: fit-content;
-}
 
-button#login-btn {
-    float: left;
-}
+
+
 
 /* Menu de navigation */
 /* Style de base pour la navigation */
@@ -59,7 +58,7 @@ nav {
     top: 0;  /* Reste en haut */
     left: 0; /* Reste à gauche */
     right: 0; /* Reste à droite */
-    z-index: 100; /* S'assure que c'est au-dessus de tout le contenu */
+    z-index: 50; /* S'assure que c'est au-dessus de tout le contenu */
 }
 
 /* Style des liens */

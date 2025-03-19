@@ -1,12 +1,14 @@
 <header>
 
-<div class="login-container">
+    <!-- La barre de nav comprend les différents sujets de conversation -->
+    <nav>
+    <div class="login-container">
         <?php if (isset($_COOKIE['username'])): ?>
             <p><?= htmlspecialchars($_COOKIE['username']); ?><form action="logout.php" method="post"><button type="submit" class="btn-hover">Déconnexion</button></form></p>
         <?php else: ?>
-            <h2>Connexion</h2>
             <form action="login.php" method="post">
                 <label for="username">Login :</label>
+                <br>
                 <input type="text" id="username" name="username" required>
                 <br>
                 <br>
@@ -22,14 +24,10 @@
         <?php endif; ?>
     </div>
 
-    
+
     <div class="Signup-container">
-        <a href="inscription.php"><button>Inscription</button></a>
+        <a href="inscription.php"><button class="btn-hover">Inscription</button></a>
     </div>
-
-
-    <!-- La barre de nav comprend les différents sujets de conversation -->
-    <nav>
         <?php
             // Connexion à la base de données
             $connexion = new PDO("mysql:host=localhost;dbname=forum;charset=utf8", "root", "");
