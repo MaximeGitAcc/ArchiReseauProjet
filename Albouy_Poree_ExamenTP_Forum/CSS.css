@@ -53,30 +53,17 @@ body::-webkit-scrollbar {
     display: none; /* Pour Chrome, Safari et Edge */
 }
 
-/* Fond vidéo */
-#background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-    filter: blur(5px) brightness(50%);
-}
-
 /* En-tête */
 header {
     display: absolute;
     text-align: center;
     padding: 20px;
-    height: 100vh;
+    height: 20vh;
 }
 
 h1 {
     font-family: 'mortal_waveregular';
-    margin-top: 15%;
-    font-size: 200px;
+    font-size: 100px;
     color: #ff00ff;  /* Garder la couleur rose pour le texte */
     text-shadow: 0 0 10px #de13db, 0 0 20px #fc02ef; /* Effet néon en #0f3460 */
 }
@@ -103,57 +90,6 @@ nav {
     z-index: 100; /* S'assure que c'est au-dessus de tout le contenu */
 }
 
-/* Menu burger */
-.burger-menu {
-    display: flex; /* Assure qu'il est visible */
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 10px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    z-index: 20; /* Toujours au-dessus */
-}
-
-/* Barres du menu burger */
-.burger-icon {
-    width: 30px;
-    height: 4px;
-    background-color: white;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Conteneur des liens */
-.nav-links {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    top: 17px;
-    right: 100px; /* Position où il apparaîtra */
-    background-color: rgba(0, 0, 0, 0);
-    padding: 5px 10px;
-    height: 40px; /* Hauteur du menu burger */
-    border-radius: 10px;
-    align-items: center;
-    gap: 15px;
-    
-    /* Caché par défaut */
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(100%); /* Hors écran à droite */
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-
-/* Apparition avec effet de slide */
-.nav-links.show {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0); /* Slide vers la gauche */
-}
-
-
 /* Style des liens */
 .nav-links a {
     color: white;
@@ -167,44 +103,6 @@ nav {
     background-color: #ff00ff;
     border-radius: 5px;
 }
-
-
-@media screen and (max-width: 768px) {
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        padding: 10px;
-        z-index: 11; /* S'assure qu'il est au-dessus des autres éléments */
-    }
-    
-
-    .nav-links {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        padding: 10px;
-        text-align: center;
-        z-index: 10; /* Ajout d'un z-index pour s'assurer que c'est au-dessus des autres éléments */
-    }
-
-    .nav-links.show {
-        display: flex; /* Afficher les liens quand on clique sur le burger */
-    }
-
-    .nav-links a {
-        color: white;
-        padding: 10px;
-        text-decoration: none;
-        display: block;
-    }
-}
-
 
 /* Popup */
 .popup {
