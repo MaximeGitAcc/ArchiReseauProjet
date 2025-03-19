@@ -1,12 +1,7 @@
 <div id="signup-popup" class="popup">
     <div class="popup-content">
-        <button id="btn-close-signup" class="btn-hover">&times;</button>
         <h2>Inscription</h2>
         <form action="signup.php" method="post">
-            <label for="new-login">Login :</label>
-            <input type="text" id="new-login" name="new-login" required>
-            <br>
-            <br>
             <label for="new-password">Mot de passe :</label>
             <br>
             <input type="password" id="new-password" name="new-password" required>
@@ -32,20 +27,26 @@
             </select>
             <br>
             <br>
+            <label for="Age">Age :</label>
+            <input type="number" id="Age" name="Age" required>
+            <br>
+            <br>
             <label for="Service">Service :</label>
-            <input type="text" id="Service" name="Service" required>
+            <select id="Service" name="Service" required>
+                <option value="Compta">Comptabilité</option>
+                <option value="RH" selected>RH</option>
+                <option value="Prod">Production</option>
+                <option value="Direction">Direction</option>
+                <option value="Achats" selected>Achats</option>
+                <option value="Developpement">Developpement</option>
+            </select>
             <br>
             <br>
             <label for="Metier">Métier :</label>
             <input type="text" id="Metier" name="Metier" required>
             <br>
             <br>
-            <label for="new-email">Email :</label>
-            <br>
-            <input type="email" id="new-email" name="new-email" required>
-            <br>
-            <br>
-            <button type="submit" class="btn-hover">S'inscrire</button>
+            <button type="submit" >S'inscrire</button>
         </form>
     </div>
 </div>

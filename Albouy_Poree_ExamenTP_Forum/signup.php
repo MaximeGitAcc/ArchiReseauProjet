@@ -6,10 +6,14 @@ try {
     $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Récupération des données du formulaire
-    $username = $_POST['new-username'];
     $password = $_POST['new-password'];
     $confirmPassword = $_POST['confirm-password'];
-    $email = $_POST['new-email'];
+    $nom = $_POST['Nom'];
+    $prenom = $_POST['Prenom'];
+    $genre = $_POST['Genre'];
+    $age = abs($_POST['Age']);
+    $service = $_POST['Service'];
+    $metier = $_POST['Metier'];
 
     // Vérification que le mot de passe et sa confirmation sont identiques
     if ($password !== $confirmPassword) {
@@ -30,15 +34,37 @@ try {
         exit;
     }
 
+    // Création de l'email
+    $email = $prenom[0].$nom."@forumesn.com";
+
+
+    // Création du login
+    $login = $prenom[0].$nom;
+    $hashedlogin = sha1($login);
+
     // Hachage du mot de passe avant insertion
     $hashedPassword = sha1($password);
 
     // Insertion de l'utilisateur dans la base de données
-    $stmt = $connexion->prepare("INSERT INTO users (Login, Password, Email) VALUES (:username, :password, :email)");
-    $stmt->bindParam(':username', $username);
-    $stmt->bindParam(':password', $hashedPassword);
-    $stmt->bindParam(':email', $email);
-    $stmt->execute();
+    // $stmt = $connexion->prepare("INSERT INTO users (Login, Password, nom, prenom, genre, age, service, metier, email) VALUES (:username, :password, :nom, :prenom, :genre, :age, :service, :metier, :email)");
+    // $stmt->bindParam(':username', $hashedlogin);
+    // $stmt->bindParam(':password', $hashedPassword);
+    // $stmt->bindParam(':nom', $nom);
+    // $stmt->bindParam(':prenom', $prenom);
+    // $stmt->bindParam(':genre', $genre);
+    // $stmt->bindParam(':age', $age);
+    // $stmt->bindParam(':service', $service);
+    // $stmt->bindParam(':metier', $metier);
+    // $stmt->bindParam(':email', $email);
+    // $count = $stmt->fetchColumn();
+    // $stmt->execute();
+
+
+
+    $sql = "INSERT INTO utilisateurs (Login, Password, nom, prenom, genre, age, service, metier, email) VALUES ($hashedlogin, $hashedPassword, $nom, $prenom, $genre, $age, $service, $metier, $email)";
+    echo $sql;
+    $connexion->query($sql);
+
 
     // Vérification de l'insertion
     if ($stmt->rowCount() > 0) {
