@@ -10,7 +10,6 @@
 
 
     <!-- La barre de nav comprend les différents sujets de conversation -->
-     <!--
     <nav>
         <?php
             // Connexion à la base de données
@@ -18,30 +17,27 @@
             $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             // On va trouver les différentes discussions dans la base de données
-
-            $sql = "SELECT * FROM discussion";
+            $sql = "SELECT * FROM sujets";
             $result = $connexion->query($sql);
             $i = 0;
 
             while ($row = mysqli_fetch_assoc($result)) {
-                $discussion[$i] =  $row["nom"];
+                $discussion[$i] =  $row["noms"];
+                ?><span><a id="<?php$discussion[0]?>.php" href= "Discussion.php" ><?php echo $discussion[0]?></a></span><?php
                 $i+=1;
             }
             
         ?>
--->
         <!-- Les différents sujets sont alors exposés -->
-         <!--
         <div id="nav-links" class="nav-links">
             <span><a id="<?php$discussion[0]?>.php" href= "Discussion.php" ><?php echo $discussion[0]?></a></span>
             <span><a id="<?php$discussion[1]?>.php" href= "Discussion.php"><?php echo $discussion[1]?></a></span>
-            <span><a id="<?php$discussion[2]?>.php" href= "Discussion.php"<?php echo $discussion[2]?></a></span>
-            <span><a id="<?php$discussion[3]?>.php" href= "Discussion.php"<?php echo $discussion[3]?></a></span>
+            <span><a id="<?php$discussion[2]?>.php" href= "Discussion.php"><?php echo $discussion[2]?></a></span>
+            <span><a id="<?php$discussion[3]?>.php" href= "Discussion.php"><?php echo $discussion[3]?></a></span>
 
-            setcookie("sujet", $sujet, time() + (7 * 24 * 60 * 60), "/"); // Le cookie dure 1 semaine
+            <!--setcookie("sujet", $sujet, time() + (7 * 24 * 60 * 60), "/"); // Le cookie dure 1 semaine-->
         </div>
     </nav>
--->
     <h1 id="title"></h1>
 
     <!-- Pop-up de connexion -->
