@@ -48,6 +48,7 @@ try {
     // Vérification de l'insertion
     if ($stmt->rowCount() > 0) {
         // Succès de l'inscription
+        setcookie("username", $username, time() + (7 * 24 * 60 * 60), "/");
         header("Location: index.php?success=registered");
         exit;
     } else {
