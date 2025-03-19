@@ -1,8 +1,5 @@
 <header>
-
-    <!-- La barre de nav comprend les différents sujets de conversation -->
-    <nav>
-    <div class="login-container">
+<div class="login-container">
         <?php if (isset($_COOKIE['username'])): ?>
             <p><?= htmlspecialchars($_COOKIE['username']); ?><form action="logout.php" method="post"><button type="submit" class="btn-hover">Déconnexion</button></form></p>
         <?php else: ?>
@@ -21,13 +18,14 @@
                 <br>
                 <button type="submit" class="btn-hover">Se connecter</button>
             </form>
+            <form action="inscription.php" method="post">
+            <button type="submit" class="btn-hover">Inscription</button>
+            </form>
         <?php endif; ?>
     </div>
 
-
-    <div class="Signup-container">
-        <a href="inscription.php"><button class="btn-hover">Inscription</button></a>
-    </div>
+    <!-- La barre de nav comprend les différents sujets de conversation -->
+    <nav>
         <?php
             // Connexion à la base de données
             $connexion = new PDO("mysql:host=localhost;dbname=forum;charset=utf8", "root", "");

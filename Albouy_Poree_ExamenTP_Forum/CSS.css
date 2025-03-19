@@ -45,8 +45,6 @@ h1 {
 }
 
 
-
-
 /* Menu de navigation */
 /* Style de base pour la navigation */
 nav {
@@ -60,6 +58,7 @@ nav {
     right: 0; /* Reste à droite */
     z-index: 50; /* S'assure que c'est au-dessus de tout le contenu */
 }
+
 
 /* Style des liens */
 a {
@@ -93,6 +92,9 @@ a:hover {
     box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
 }
 
+main {
+    margin-top: 400px;
+}
 /* Sections */
 main div {
     padding: 50px;

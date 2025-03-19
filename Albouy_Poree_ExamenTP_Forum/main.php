@@ -1,7 +1,7 @@
 <main>
 
 <h3>comment utiliser ce forum ? </h3>
-<p>Choisissez votre sujet de discussion en cliquant sur ceux qui vous sont présenté en ahut de page.</p>
+<p>Choisissez votre sujet de discussion en cliquant sur ceux qui vous sont présenté en haut de page.</p>
 <p>Une fois choisi, vous aurez accès aux discussions de ce sujet comme présenté ci-dessous : </p>
 <br><br><br>
 <section class="message">
