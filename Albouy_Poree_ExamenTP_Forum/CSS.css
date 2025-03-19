@@ -1,30 +1,12 @@
 /* Importation des polices */
 @font-face {
     font-family: 'mortal_waveregular';
-    src: url('Font/1/mortal_wave-webfont.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'quickregular';
-    src: url('Font/5/quick-webfont.woff2') format('woff2');
-    text-transform: lowercase;
-}
-
-@font-face {
-    font-family: 'quickminus';
-    src: url('Font/8/quick-regular.ttf') format('ttf');
-    text-transform: lowercase;
-}
-
-@font-face {
-    font-family: 'quick3';
-    src: url('Font/9/quick-3.woff2') format('woff2');
-    text-transform: lowercase;
+    src: url('1/mortal_wave-webfont.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Sunflare';
-    src: url('Font/11/Sunflare.woff') format('woff');
+    src: url('2/Sunflare.woff') format('woff');
     text-transform: lowercase;
 }
 
@@ -36,17 +18,7 @@ body {
     color: white;
     background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
     background-size: 400% 400%;
-    animation: neonBackground 10s infinite alternate ease-in-out;
     font-size: 24px;
-}
-
-@keyframes neonBackground {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
 }
 
 body::-webkit-scrollbar {
