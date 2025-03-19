@@ -33,10 +33,12 @@
         <!-- Les différents sujets sont alors exposés -->
          <!--
         <div id="nav-links" class="nav-links">
-            <span><a href= "<?php$discussion[0]?>.php" ><?php echo $discussion[0]?></a></span>
-            <span><a href="<?php$discussion[1]?>.php"><?php echo $discussion[1]?></a></span>
-            <span><a href="<?php$discussion[2]?>.php"><?php echo $discussion[2]?></a></span>
-            <span><a href="<?php$discussion[3]?>.php"><?php echo $discussion[3]?></a></span>
+            <span><a id="<?php$discussion[0]?>.php" href= "Discussion.php" ><?php echo $discussion[0]?></a></span>
+            <span><a id="<?php$discussion[1]?>.php" href= "Discussion.php"><?php echo $discussion[1]?></a></span>
+            <span><a id="<?php$discussion[2]?>.php" href= "Discussion.php"<?php echo $discussion[2]?></a></span>
+            <span><a id="<?php$discussion[3]?>.php" href= "Discussion.php"<?php echo $discussion[3]?></a></span>
+
+            setcookie("sujet", $sujet, time() + (7 * 24 * 60 * 60), "/"); // Le cookie dure 1 semaine
         </div>
     </nav>
 -->
@@ -135,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeLogin = document.getElementById("btn-close-popup");
     const closeSignup = document.getElementById("btn-close-signup");
     const loginBtn = document.getElementById("login-btn");
+    const  = document.getElementById("<?php$discussion[0]?>.php");
 
     // Ouvrir la pop-up de connexion
     if (loginBtn) {
