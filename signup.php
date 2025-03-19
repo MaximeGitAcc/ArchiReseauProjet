@@ -23,11 +23,6 @@ try {
     $stmt->execute();
     $count = $stmt->fetchColumn();
 
-    // // Vérification si l'email existe déjà
-    // $stmt = $connexion->prepare("SELECT COUNT(*) FROM users WHERE Email = :email");
-    // $stmt->bindParam(':email', $email);
-    // $stmt->execute();
-    // $count = $stmt->fetchColumn();
 
     if ($count > 0) {
         // Si l'utilisateur existe déjà

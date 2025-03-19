@@ -7,16 +7,37 @@
 @font-face {
     font-family: 'quickregular';
     src: url('Font/5/quick-webfont.woff2') format('woff2');
+    text-transform: lowercase;
 }
+
+@font-face {
+    font-family: 'quickminus';
+    src: url('Font/8/quick-regular.ttf') format('ttf');
+    text-transform: lowercase;
+}
+
+@font-face {
+    font-family: 'quick3';
+    src: url('Font/9/quick-3.woff2') format('woff2');
+    text-transform: lowercase;
+}
+
+@font-face {
+    font-family: 'Sunflare';
+    src: url('Font/11/Sunflare.woff') format('woff');
+    text-transform: lowercase;
+}
+
 
 /* Style général */
 body {
     margin: 0;
-    font-family: 'quickregular', sans-serif;
+    font-family: 'Sunflare', sans-serif;
     color: white;
     background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
     background-size: 400% 400%;
     animation: neonBackground 10s infinite alternate ease-in-out;
+    font-size: 24px;
 }
 
 @keyframes neonBackground {
@@ -236,7 +257,7 @@ main div {
 }
 
 h2 {
-    font-size: 50px;
+    font-size: 80px;
     text-transform: uppercase;
     color: #ff00ff;
     text-shadow: 0 0 5px #ff00ff;
@@ -344,4 +365,14 @@ footer {
 }
 .small-text a:hover {
     text-decoration: underline;
+}
+
+li {
+    list-style-type: none;
+  }
+
+.container {
+    max-width: 800px; /* Largeur maximale du texte */
+    margin: 0 auto; /* Centre le bloc horizontalement */
+    padding: 20px; /* Ajoute un peu d’espace intérieur */
 }
